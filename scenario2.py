@@ -4,7 +4,7 @@ Scenario 2: List of route costs to check
 You have a carrier route list with 100,000 (100K) entries (in arbitrary order) 
 and a list of 1000 phone numbers. How can you operationalize the route cost lookup problem?
 """
-
+import os
 class CallRouting(object):
 
     def __init__(self, route_costs, phone_numbers):
@@ -14,6 +14,12 @@ class CallRouting(object):
     def dict_of_routes(self):
         """
         Returns a dictionary of routes >> key: route, value: cost
+
+        Time Complexity:
+        Best >> O(n*l) >> n = number of lines, l = length of the line
+        Worst >> N/A
+        Space Complexity:
+        O(n) >> the bigger the dict, the more space
         """
         dict_of_routes = {}
 
@@ -40,11 +46,46 @@ class CallRouting(object):
                 list_of_numbers.append(number)
         return list_of_numbers
 
-    def look_up_cost():
+    def cost_of_calling(self, phone_number, routes):
         """
-        Returns 
+        Goes through dict_of_routes to find the input number cost
+        Time Complexity:
+        Best >> O(1) >> 1st number match
+        Worst >> O(n) >> go throught the dict
+        Space Complexity: 
+        O(1) >> not creating anything
         """
-        pass
+
+        while len(phone_number) > 1:
+            try:
+                if routes[phone_number] is not None:
+                    cost = routes[phone_number]
+                    cheapest = min(cost)
+                    return cheapest
+            except:
+                phone_number = phone_number[:-1]
+        return None
+
+        
+    def input_number_costs(self):
+        """
+        Returns a dictionary of input number and cost of calling
+        Time Complexity:
+        Best >>
+        Worst >>
+        Space Complexity:
+        """
+        input_numbers = self.list_of_numbers()
+        route = self.dict_of_routes()
+        input_number_costs = {}
+
+        for number in input_numbers:
+            cost = self.cost_of_calling(number, route)
+            input_number_costs[number] = cost
+
+        return input_number_costs
+
+
 
     
 def test_call_routing():
@@ -52,4 +93,7 @@ def test_call_routing():
 
 
 if __name__ == '__main__':
-    pass
+    # route_costs = os.path.dirname("/data/route-costs-106000.txt")
+    # phone_numbers = os.path.dirname("/data/phone-numbers-1000.txt")
+    call_routing = CallRouting("route-costs-106000.txt", "phone-numbers-1000.txt")
+    print(call_routing.input_number_costs())
