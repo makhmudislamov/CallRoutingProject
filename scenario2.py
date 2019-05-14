@@ -27,19 +27,22 @@ class CallRouting(object):
                 else:
                     dict_of_routes[route] = [cost[:-1]]
         return dict_of_routes 
-        # return input_numbers        
+               
 
-    def route_cost_to_hashtable():
+    def list_of_numbers(self):
         """
-        Returns converted txt file of route costs as hashtable
-        key, value = route, cost
+        Returns list of phone numbers, 1000
         """
-        pass
-        # return route_cost
+        list_of_numbers = []
+        with open(self.phone_numbers) as file:
+            for line in file:
+                number = line[:-1]
+                list_of_numbers.append(number)
+        return list_of_numbers
 
     def look_up_cost():
         """
-        Returns union of two sets: route costs and input 1000 phone numbers
+        Returns 
         """
         pass
 
