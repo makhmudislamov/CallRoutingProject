@@ -6,4 +6,6 @@ and a list of 1000 phone numbers. How can you operationalize the route cost look
 """
 
 # We can use set here. Set1 = route costs, Set2 = input phone number file with 1000 numbers
-# data structure for set could be hashtable
+# data structure for set could be hashtable, key = phone number, value = cost
+# take into the consideration of longer prefixes 
+
