@@ -28,17 +28,16 @@ def file_to_dict(file_name):
             # i+=2
     return dict
 
-# def call_price(phone_num, price_guide):
-#     for key, value in price_guide:
-#         if key == phone_num:
-#             return value
-#         for i in range(len(phone_num)-1):
-#             if key[i] == phone_num[i]:
-#                 return value
-#         return None
+def call_price(phone_num, price_guide):
+    for key,value in price_guide.items():
+        if key == phone_num:
+            return value
+        for i in range(len(phone_num)-1):
+            if key[i] == phone_num[i]:
+                return value
 
 if __name__ == "__main__":
     path = file_to_dict('route-costs-10.txt')
-    print(path)
-    # target_price = call_price('+86153', path)
-    # print(target_price)
+    # print(path)
+    target_price = call_price('+86153', path)
+    print(target_price)
