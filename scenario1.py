@@ -25,7 +25,6 @@ def file_to_dict(file_name):
                 if entry[0] == '+':
                     dict[entry] = price_guide[i+1]
             i+=1
-            # i+=2
     return dict
 
 def call_price(phone_num, price_guide):
@@ -38,6 +37,5 @@ def call_price(phone_num, price_guide):
 
 if __name__ == "__main__":
     path = file_to_dict('route-costs-10.txt')
-    # print(path)
     target_price = call_price('+86153', path)
     print(target_price)
