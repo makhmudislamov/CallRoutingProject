@@ -23,6 +23,7 @@ class CallRouting(object):
         """
         dict_of_routes = {}
 
+        
         with open(self.route_costs) as file:
             for line in file:
                 list_from_lines = line.split(",")
@@ -86,14 +87,8 @@ class CallRouting(object):
         return input_number_costs
 
 
-
-    
-def test_call_routing():
-    pass
-
-
 if __name__ == '__main__':
-    # route_costs = os.path.dirname("/data/route-costs-106000.txt")
-    # phone_numbers = os.path.dirname("/data/phone-numbers-1000.txt")
+    # route_costs = os.path.join(direct, "route-costs-106000.txt")
+    # phone_numbers = os.path.join(direct, "phone-numbers-1000.txt")
     call_routing = CallRouting("route-costs-106000.txt", "phone-numbers-1000.txt")
     print(call_routing.input_number_costs())
