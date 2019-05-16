@@ -7,5 +7,3 @@ For the 3rd challenge:
 * dictionary & BST
 * sort the calling routing numbers into a BST
 """
-
-

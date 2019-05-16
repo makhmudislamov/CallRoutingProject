@@ -7,6 +7,7 @@ You have 5 carrier route lists, each with 10,000,000 (10M) entries (in arbitrary
 import sys
 import os
 import glob
+from time import time
 
 class TrieNode(object):
     def __init__(self, data=None):
@@ -57,8 +58,28 @@ class Trie(object):
                     file.write(phone_num + ", 0 \n")
 
 if __name__ == "__main__":
+    # loading route cost and time spent
+    start = time()
     price_guide = glob.glob('data/route-costs-*.txt')
+    end = time()
+    total = end - start
+    print("Time for loading route cost data: {total} seconds")
+    # building a trie and time spent
+    start = time()
     trie_for_all = Trie(price_guide)
+    end = time()
+    total = end - start
     print('TRIE ALL DONE')
+    print("Time for building the trie: {total} seconds")
+    # loading numbers and time spent
+    start = time()
     phone_numbers = ('data/phone-numbers-100.txt')
+    end = time()
+    total = end - start
+    print("Time for loading phone numbers data: {total} seconds")
+    # writing the results to a file and time spent
+    start = time()
     trie_for_all.write_file(phone_numbers)
+    end = time()
+    total = end - start
+    print("Time for writing data to a file: {total} seconds")
