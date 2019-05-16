@@ -10,18 +10,27 @@ import glob
 from time import time
 
 class TrieNode(object):
+    """
+    ___init__ for TrieNode
+    """
     def __init__(self, data=None):
         self.data = data
         self.price = None
         self.dict = {}
 
 class Trie(object):
+    """
+    ___init__ for Trie
+    """
     def __init__(self, route_prices):
         self.root = TrieNode()
         for file in route_prices:
             self.make_trie(file)
     
     def make_trie(self, route_prices):
+        """
+        Returns ...
+        """
         for line in open(route_prices):
             current_node = self.root
             entry = line.split(",")
@@ -39,6 +48,9 @@ class Trie(object):
                 current_node.price = price
 
     def write_file(self, phone_numbers):
+        """
+        Returns ...
+        """
         for phone_num in open(phone_numbers):
             current_node = self.root
             answer_price = float('inf')
