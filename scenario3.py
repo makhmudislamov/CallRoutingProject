@@ -63,23 +63,23 @@ if __name__ == "__main__":
     price_guide = glob.glob('data/route-costs-*.txt')
     end = time()
     total = end - start
-    print("Time for loading route cost data: {total} seconds")
+    print("Time for loading route cost data: {} seconds".format(total))
     # building a trie and time spent
     start = time()
     trie_for_all = Trie(price_guide)
     end = time()
     total = end - start
     print('TRIE ALL DONE')
-    print("Time for building the trie: {total} seconds")
+    print("Time for building the trie: {} seconds".format(total))
     # loading numbers and time spent
     start = time()
     phone_numbers = ('data/phone-numbers-100.txt')
     end = time()
     total = end - start
-    print("Time for loading phone numbers data: {total} seconds")
+    print("Time for loading phone numbers data: {} seconds".format(total))
     # writing the results to a file and time spent
     start = time()
     trie_for_all.write_file(phone_numbers)
     end = time()
     total = end - start
-    print("Time for writing data to a file: {total} seconds")
+    print("Time for writing data to a file: {} seconds".format(total))
