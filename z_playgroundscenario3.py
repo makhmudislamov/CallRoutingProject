@@ -50,15 +50,15 @@ class Trie(object):
                     break
             phone_num = phone_num.strip('\n')
             if answer_price != float('inf'):
-                with open("output2.txt", "a+") as file:
+                with open("output4.txt", "a+") as file:
                     file.write(phone_num + ", " + str(answer_price) + '\n')
             else:
-                with open("output2.txt", "a+") as file:
+                with open("output4.txt", "a+") as file:
                     file.write(phone_num + ", 0 \n")
 
 if __name__ == "__main__":
     price_guide = glob.glob('data/route-costs-*.txt')
     trie_for_all = Trie(price_guide)
     print('TRIE ALL DONE')
-    phone_numbers = ('data/phone-numbers-100.txt')
+    phone_numbers = ('data/phone-numbers-3.txt')
     trie_for_all.write_file(phone_numbers)
